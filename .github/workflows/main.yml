@@ -25,7 +25,7 @@ jobs:
       run: |
         git clone https://github.com/armbian/build --depth 1
         cd build
-        ./compile.sh docker BOARD=rockpi-4b BRANCH=current RELEASE=focal BUILD_MINIMAL=yes BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
+        ./compile.sh BOARD=rockpi-4b BRANCH=current RELEASE=focal BUILD_MINIMAL=yes BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
         
     - name: Upload Armbian
       uses: actions/upload-artifact@master
