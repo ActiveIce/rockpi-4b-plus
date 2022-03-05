@@ -16,16 +16,17 @@ jobs:
     runs-on: ubuntu-20.04
     
     steps:
-    - name: Maximize build space
-      uses: easimon/maximize-build-space@master
-      with:
-        root-reserve-mb: 4096
+    #- name: Maximize build space
+    #  uses: easimon/maximize-build-space@master
+    #  with:
+    #    root-reserve-mb: 4096
     
     - name: Bulid Armbian
       run: |
+        cd /root
         git clone https://github.com/armbian/build --depth 1
         cd build
-        ./compile.sh BOARD="rockpi-4b" BRANCH=current RELEASE=bullseye KERNEL_ONLY=no KERNEL_CONFIGURE=no BUILD_MINIMAL=no BUILD_DESKTOP=no 
+        sudo ./compile.sh BOARD="rockpi-4b" BRANCH=current RELEASE=bullseye KERNEL_ONLY=no KERNEL_CONFIGURE=no BUILD_MINIMAL=no BUILD_DESKTOP=no 
         
     - name: Upload Armbian
       uses: actions/upload-artifact@master
