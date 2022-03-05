@@ -10,11 +10,7 @@ on:
       - master
   watch:
     types: [started]
-
-defaults:
-  run:
-    working-directory: /root
-       
+   
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -27,13 +23,13 @@ jobs:
 
     - name: Bulid Armbian
       run: |
-        sudo git clone https://github.com/armbian/build --depth 1
-        sudo cd build
-        sudo ./compile.sh BOARD="rockpi-4b" BRANCH=current RELEASE=bullseye KERNEL_ONLY=no KERNEL_CONFIGURE=no BUILD_MINIMAL=no BUILD_DESKTOP=no 
+        git clone https://github.com/armbian/build --depth 1
+        cd build
+        ./compile.sh  BOARD=rockpi-4b BRANCH=current RELEASE=bullseye BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
         
     - name: Upload Armbian
       uses: actions/upload-artifact@master
       with:
         name: image
-        path: build/output/image/*.img
+        path: build/output/images/*.img
 
