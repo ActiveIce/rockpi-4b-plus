@@ -3,8 +3,8 @@ name: auto build engine
 on: 
   release:
     types: [published]
-  schedule:
-    - cron: "0 16 * * *"
+  #schedule:
+  #  - cron: "0 16 * * *"
   push:
     branches: 
       - master
@@ -20,7 +20,7 @@ jobs:
       run: |
         git clone https://github.com/armbian/build --depth 1
         cd build
-        ./compile.sh BOARD=rockpi-4b BRANCH=legacy RELEASE=bullseye BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
+        ./compile.sh BOARD=rockpi-4b BRANCH=edge RELEASE=bullseye BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
         
     - name: Upload Armbian
       uses: actions/upload-artifact@master
