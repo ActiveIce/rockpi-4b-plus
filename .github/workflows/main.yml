@@ -22,7 +22,6 @@ jobs:
         wget https://raw.githubusercontent.com/ActiveIce/rockpi-4b/master/add-board-rk3399-rock-pi-4b-plus.patch
         cp add-board-rk3399-rock-pi-4b-plus.patch build/patch/kernel/rockchip64-current/
         cp add-board-rk3399-rock-pi-4b-plus.patch build/patch/kernel/rockchip64-edge/
-        cp add-board-rk3399-rock-pi-4b-plus.patch build/patch/kernel/rockchip64-legacy/
         cd build
         cp config/boards/rockpi-4b.csc config/boards/rockpi-4b-plus.csc
         sed -i 's/Rockpi 4B/Rockpi 4B Plus/' config/boards/rockpi-4b-plus.csc
