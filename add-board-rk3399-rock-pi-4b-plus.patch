@@ -1,9 +1,9 @@
 --- a/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4b-plus.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4b-plus.dts
 @@ -59,3 +59,9 @@
-		vddio-supply = <&vcc_1v8>;
-	};
-};
+ 		vddio-supply = <&vcc_1v8>;
+ 	};
+ };
 +
 +&gmac {
 +	snps,reset-delays-us = <0 20000 100000>;
