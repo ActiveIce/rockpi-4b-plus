@@ -20,12 +20,11 @@ jobs:
       run: |
         git clone https://github.com/armbian/build --depth 1
         wget https://raw.githubusercontent.com/ActiveIce/rockpi-4b/master/add-board-rk3399-rock-pi-4b-plus.patch
-        cp add-board-rk3399-rock-pi-4b-plus.patch build/patch/kernel/rockchip64-current/
         cp add-board-rk3399-rock-pi-4b-plus.patch build/patch/kernel/rockchip64-edge/
         cd build
         cp config/boards/rockpi-4b.csc config/boards/rockpi-4b-plus.csc
         sed -i 's/Rockpi 4B/Rockpi 4B Plus/' config/boards/rockpi-4b-plus.csc
-        sed -i 's/rk3399-rock-pi-4b.dtb/rk3399-rock-pi-4b-plus-rtl8211f.dtb/' config/boards/rockpi-4b-plus.csc
+        sed -i 's/rk3399-rock-pi-4b.dtb/rk3399-rock-pi-4b-plus.dtb/' config/boards/rockpi-4b-plus.csc
         sed -i 's/rk3399_ddr_933MHz_v1.20.bin/rk3399pro_ddr_933MHz_v1.24.bin/' config/boards/rockpi-4b-plus.csc
         ./compile.sh BOARD=rockpi-4b-plus BRANCH=edge RELEASE=bullseye BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
         
