@@ -26,7 +26,7 @@ jobs:
         sed -i 's/Rockpi 4B/Rockpi 4B Plus/' config/boards/rockpi-4b-plus.csc
         sed -i 's/rk3399-rock-pi-4b.dtb/rk3399-rock-pi-4b-plus.dtb/' config/boards/rockpi-4b-plus.csc
         sed -i 's/rk3399_ddr_933MHz_v1.20.bin/rk3399pro_ddr_933MHz_v1.24.bin/' config/boards/rockpi-4b-plus.csc
-        ./compile.sh BOARD=rockpi-4b-plus BRANCH=edge RELEASE=focal BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
+        ./compile.sh BOARD=rockpi-4b-plus BRANCH=edge RELEASE=focal BUILD_MINIMAL=yes BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
         
     - name: Upload Armbian
       uses: actions/upload-artifact@master
