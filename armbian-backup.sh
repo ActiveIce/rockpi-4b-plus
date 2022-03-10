@@ -170,6 +170,7 @@ backup_image() {
 
   dd if=${DEVICE} of=${output} skip=${loader1_start} seek=${loader1_start} count=$(expr ${boot_start} - ${loader1_start}) conv=notrunc
 
+  systemctl stop pve-cluster.service
   systemctl enable armbian-resize-filesystem.service
   rsync --force -rltWDEgop --delete --stats --progress $exclude \
     --exclude "$output" \
@@ -193,6 +194,8 @@ backup_image() {
       mkdir $ROOT_MOUNT/$i
     fi
   done
+
+  mkdir $ROOT_MOUNT/var/lib/lxcfs
 
   if [ ! -d $ROOT_MOUNT/tmp ]; then
     mkdir $ROOT_MOUNT/tmp
