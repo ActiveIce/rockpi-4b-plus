@@ -19,7 +19,7 @@ jobs:
     - name: Bulid Armbian
       run: |
         git clone https://github.com/armbian/build --depth 1
-        wget https://raw.githubusercontent.com/ActiveIce/rockpi-4b/master/add-board-rk3399-rock-pi-4b-plus.patch
+        wget https://raw.githubusercontent.com/ActiveIce/rockpi-4b-plus/master/fix-rtl8211f.patch
         cp add-board-rk3399-rock-pi-4b-plus.patch build/patch/kernel/rockchip64-edge/
         cd build
         cp config/boards/rockpi-4b.csc config/boards/rockpi-4b-plus.csc
