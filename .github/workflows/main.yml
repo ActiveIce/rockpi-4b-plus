@@ -24,7 +24,7 @@ jobs:
         cp fix-rtl8211f.patch build/patch/kernel/rockchip64-edge/
         cp rockpi-4b-plus.csc build/config/boards/
         cd build
-        ./compile.sh BOARD=rockpi-4b-plus BRANCH=edge RELEASE=jammy BUILD_MINIMAL=yes BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no INSTALL_HEADERS=yes COMPRESS_OUTPUTIMAGE=sha,gpg,img
+        ./compile.sh BOARD=rockpi-4b-plus BRANCH=edge RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no INSTALL_HEADERS=yes COMPRESS_OUTPUTIMAGE=sha,gpg,img
         
     - name: Upload Armbian
       uses: actions/upload-artifact@master
