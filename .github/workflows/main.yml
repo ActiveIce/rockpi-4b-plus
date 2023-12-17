@@ -27,7 +27,7 @@ jobs:
         ./compile.sh BOARD=rockpi-4b-plus BRANCH=edge RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no INSTALL_HEADERS=yes COMPRESS_OUTPUTIMAGE=sha,gpg,img
         
     - name: Upload Armbian
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@main
       with:
         name: image
         path: build/output/images/*.img
